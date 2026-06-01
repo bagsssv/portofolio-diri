@@ -1,23 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata Siswa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --accent: #38bdf8;
+      --muted: #94a3b8;
+      --radius: 24px;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 22%),
+                  radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.1), transparent 20%),
+                  linear-gradient(180deg, #081026 0%, #0f172a 45%, #111827 100%);
+      color: var(--text);
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 10%, rgba(56,189,248,0.08) 0%, transparent 22%),
+                        radial-gradient(circle at 50% 80%, rgba(14,165,233,0.06) 0%, transparent 28%);
+      pointer-events: none;
+      opacity: 0.85;
+      z-index: -1;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    header {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      max-width: 60ch;
+      color: var(--muted);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--text);
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(56, 189, 248, 0.18);
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.25);
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 3rem 0;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .skills-list,
+    .work-list,
+    .contact-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .skill-pill {
+      display: inline-flex;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      color: var(--text);
+      font-size: 0.95rem;
+      width: fit-content;
+    }
+
+    .project {
+      display: grid;
+      gap: 1rem;
+      padding: 1.6rem;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .project-title h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .project-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .project p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .project-links a {
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
+    }
+
+    .project-links a:hover {
+      background: rgba(56, 189, 248, 0.18);
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem 0 1rem;
+    }
+
+    @media (min-width: 900px) {
+      header {
+        grid-template-columns: 1.5fr 1fr;
+      }
+
+      .hero {
+        gap: 2rem;
+      }
+
+      .hero p {
+        max-width: 45rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div>
-        <h1><p align="center">==========Biodata==========</p></h1>
-        <div>
-            <p><strong>Nama     :</strong> Bagus</p>
-            <p><strong>Kelas    :</strong> X-RPL 3</p>
-            <p><strong>Sekolah  :</strong> SMKN 4 Bojonegoro</p>
-            <p><strong>No.Absen :</strong> 04</p>
-            <p><strong>Sosmed   :</strong>
-            <a href="www.instagram.com/bgskham">bgskam</a></p>
-            <p><strong>Alamat   :</strong> Ds. Mojoagung Kec. Soko Kab. Tuban</p>
-            <h1 align="center"><marque>TERIMAKASIH TELAH MEMBACAAAAAAA</marque></h1>
+  <div class="container">
+    <header>
+      <section class="hero">
+        <p>Halo, saya</p>
+        <h1>M. Bagus Shokhibul Khikham<span style="color: var(--accent);">.</span></h1>
+        <p>Saya adalah seorang pelajar terus mengembangkan diri di bidang teknologi informasi.</p>
+        <div class="buttons">
+          <a class="btn" href="#work">Portfolio</a>
+          <a class="btn" href="#contact">Kontak</a>
         </div>
-    </div>
+      </section>
+
+      <section class="info-grid">
+        <article class="card">
+          <h2>Tentang Saya</h2>
+          <p>Saya adalah anak yang masih bersekolah di SMK NEGERI 4 BOJONEGORO, Saya sudah banyak mengikuti event-event di diluar sekolah
+             dan saya juga salah satu anggota osis di masa bakti 2024/2025 dan juga pernah menjadi penanggung jawab(PJ) di seksi bidang keimanan,
+             saya juga selalu mengembangkan diri untuk lebih baik dari kemarin meski terkadang sering lupa, saya sekarang sedang belajar untuk menguwasai berbagai
+             macam hal yang pasti masih mencakup dijurusan rekayasa perangkat lunak seperti mengembangkan web dan hal-hal yang menarik bagi saya.</p>
+        </article>
+        <article class="card">
+          <h2>Keahlian</h2>
+          <p>UI/UX, HTML, CSS, JavaScript, React, Tailwind, desain responsif, dan kolaborasi tim.</p>
+        </article>
+        <article class="card">
+          <h2>Target</h2>
+          <p>Membangun produk digital yang intuitif, cepat, dan mudah digunakan — baik untuk klien maupun pengguna akhir.</p>
+        </article>
+      </section>
+    </header>
+
+    <section id="skills" class="section">
+      <h2>Keahlian Utama</h2>
+      <div class="skills-list">
+        <span class="skill-pill">Desain UI</span>
+        <span class="skill-pill">HTML & CSS</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">Tailwind CSS</span>
+        <span class="skill-pill">Responsive Design</span>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <h2>Proyek Terbaru</h2>
+      <div class="work-list">
+        <article class="project">
+          <div class="project-title">
+            <h3>Proyek Satu</h3>
+            <span class="project-meta">Web Responsive • 2026</span>
+          </div>
+          <p>Deskripsi singkat tentang proyek ini: tujuan, teknologi, dan hasil utama yang dicapai.</p>
+          <div class="project-links">
+            <a href="#">Lihat Demo</a>
+            <a href="#">Kode Sumber</a>
+          </div>
+        </article>
+
+        <!-- <article class="project">
+          <div class="project-title">
+            <h3>Proyek Dua</h3>
+            <span class="project-meta">Aplikasi Web • 2025</span>
+          </div>
+          <p>Deskripsi singkat tentang proyek ini: fitur utama, peran Anda, dan manfaat untuk pengguna.</p>
+          <div class="project-links">
+            <a href="#">Lihat Demo</a>
+            <a href="#">Kode Sumber</a>
+          </div>
+        </article>-->
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Hubungi Saya</h2>
+      <div class="contact-list">
+        <article class="card">
+          <h2>Email</h2>
+          <p><a href="mailto:email@domain.com">pkkmbh1@gmail.com</a></p>
+        </article>
+        <article class="card">
+          <h2>LinkedIn</h2>
+          <p><a href="#">linkedin.com/in/username</a></p>
+        </article>
+        <article class="card">
+          <h2>GitHub</h2>
+          <p><a href="https://github.com/bagsssv">https://github.com/bagsssv</a></p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Bagus. Dibuat dengan HTML dan CSS.</p>
+  </footer>
 </body>
 </html>
