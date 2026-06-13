@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio</title>
+  <title>M. Bagus Shokhibul Khikham - Web Developer Portfolio</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -189,6 +189,46 @@
       margin-bottom: 1rem;
     }
 
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-tag {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .project-features {
+      margin-bottom: 1rem;
+    }
+
+    .project-features ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .project-features li {
+      color: var(--muted);
+      padding: 0.3rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .project-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
     .project-links {
       display: flex;
       flex-wrap: wrap;
@@ -235,28 +275,25 @@
       <section class="hero">
         <p>Halo, saya</p>
         <h1>M. Bagus Shokhibul Khikham<span style="color: var(--accent);">.</span></h1>
-        <p>Saya adalah seorang pelajar terus mengembangkan diri di bidang teknologi informasi.</p>
+        <p>Web Developer yang berfokus pada pembuatan aplikasi web modern menggunakan React JS dan Laravel. Siap membantu mewujudkan website impian Anda.</p>
         <div class="buttons">
-          <a class="btn" href="#work">Portfolio</a>
-          <a class="btn" href="#contact">Kontak</a>
+          <a class="btn" href="#work">Lihat Portfolio</a>
+          <a class="btn" href="#contact">Hubungi Saya</a>
         </div>
       </section>
 
       <section class="info-grid">
         <article class="card">
           <h2>Tentang Saya</h2>
-          <p>Saya adalah anak yang masih bersekolah di SMK NEGERI 4 BOJONEGORO, Saya sudah banyak mengikuti event-event di diluar sekolah
-             dan saya juga salah satu anggota osis di masa bakti 2024/2025 dan juga pernah menjadi penanggung jawab(PJ) di seksi bidang keimanan,
-             saya juga selalu mengembangkan diri untuk lebih baik dari kemarin meski terkadang sering lupa, saya sekarang sedang belajar untuk menguwasai berbagai
-             macam hal yang pasti masih mencakup dijurusan rekayasa perangkat lunak seperti mengembangkan web dan hal-hal yang menarik bagi saya.</p>
+          <p>Siswa SMK Negeri 4 Bojonegoro jurusan Rekayasa Perangkat Lunak. Aktif di OSIS masa bakti 2024/2025 sebagai PJ Seksi Keimanan. Terus mengembangkan diri di bidang web development dan teknologi informasi.</p>
         </article>
         <article class="card">
           <h2>Keahlian</h2>
-          <p>UI/UX, HTML, CSS, JavaScript, React, Tailwind, desain responsif, dan kolaborasi tim.</p>
+          <p>React JS, Laravel, JavaScript, HTML/CSS, Tailwind CSS, MySQL, UI/UX Design, Responsive Design, dan kolaborasi tim.</p>
         </article>
         <article class="card">
-          <h2>Target</h2>
-          <p>Membangun produk digital yang intuitif, cepat, dan mudah digunakan — baik untuk klien maupun pengguna akhir.</p>
+          <h2>Layanan</h2>
+          <p>Menerima jasa pembuatan landing page, company profile, sistem informasi, dan web application custom dengan harga terjangkau.</p>
         </article>
       </section>
     </header>
@@ -264,12 +301,16 @@
     <section id="skills" class="section">
       <h2>Keahlian Utama</h2>
       <div class="skills-list">
-        <span class="skill-pill">Desain UI</span>
-        <span class="skill-pill">HTML & CSS</span>
+        <span class="skill-pill">React JS</span>
+        <span class="skill-pill">Laravel</span>
         <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">React</span>
+        <span class="skill-pill">HTML & CSS</span>
         <span class="skill-pill">Tailwind CSS</span>
+        <span class="skill-pill">MySQL</span>
         <span class="skill-pill">Responsive Design</span>
+        <span class="skill-pill">UI/UX Design</span>
+        <span class="skill-pill">REST API</span>
+        <span class="skill-pill">Git & GitHub</span>
       </div>
     </section>
 
@@ -278,27 +319,110 @@
       <div class="work-list">
         <article class="project">
           <div class="project-title">
-            <h3>Proyek Satu</h3>
-            <span class="project-meta">Web Responsive • 2026</span>
+            <h3>Sistem Absensi Magang</h3>
+            <span class="project-meta">Web Application • 2026</span>
           </div>
-          <p>Deskripsi singkat tentang proyek ini: tujuan, teknologi, dan hasil utama yang dicapai.</p>
+          <p>Aplikasi web untuk manajemen absensi dan jurnal harian magang dengan fitur lengkap dan desain modern.</p>
+          <div class="project-tech">
+            <span class="tech-tag">React JS</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">LocalStorage</span>
+          </div>
+          <div class="project-features">
+            <strong style="color: var(--text);">Fitur Utama:</strong>
+            <ul>
+              <li>Dashboard monitoring data intern dengan status real-time</li>
+              <li>Sistem jurnal harian dengan upload foto kegiatan</li>
+              <li>Light/Dark mode toggle</li>
+              <li>Responsive design untuk mobile dan desktop</li>
+              <li>Data persistence dengan LocalStorage API</li>
+              <li>Form validation dan error handling</li>
+              <li>Search dan filter data</li>
+            </ul>
+          </div>
           <div class="project-links">
-            <a href="#">Lihat Demo</a>
-            <a href="#">Kode Sumber</a>
+            <a href="https://bagsssv.github.io/sistem-absensi/" target="_blank">Lihat Demo</a>
+            <a href="https://github.com/bagsssv/sistem-absensi" target="_blank">Kode Sumber</a>
           </div>
         </article>
 
-        <!-- <article class="project">
+        <article class="project">
           <div class="project-title">
-            <h3>Proyek Dua</h3>
-            <span class="project-meta">Aplikasi Web • 2025</span>
+            <h3>Landing Page Health Supplement</h3>
+            <span class="project-meta">Landing Page • 2026</span>
           </div>
-          <p>Deskripsi singkat tentang proyek ini: fitur utama, peran Anda, dan manfaat untuk pengguna.</p>
+          <p>Landing page responsif untuk produk suplemen kesehatan dengan desain modern dan konversi tinggi.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Responsive Design</span>
+          </div>
+          <div class="project-features">
+            <strong style="color: var(--text);">Fitur Utama:</strong>
+            <ul>
+              <li>Desain modern dengan animasi smooth</li>
+              <li>Section testimonial customer</li>
+              <li>Integrasi WhatsApp untuk order</li>
+              <li>Optimasi loading speed</li>
+              <li>SEO friendly structure</li>
+            </ul>
+          </div>
           <div class="project-links">
-            <a href="#">Lihat Demo</a>
-            <a href="#">Kode Sumber</a>
+            <a href="https://bagsssv.github.io/landing-page/" target="_blank">Lihat Demo</a>
+            <a href="https://github.com/bagsssv/landing-page" target="_blank">Kode Sumber</a>
           </div>
-        </article>-->
+        </article>
+
+        <article class="project">
+          <div class="project-title">
+            <h3>Company Profile Website</h3>
+            <span class="project-meta">Company Profile • 2025</span>
+          </div>
+          <p>Website company profile untuk bisnis lokal dengan tampilan profesional dan mudah navigasi.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Laravel</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Bootstrap</span>
+            <span class="tech-tag">Blade Template</span>
+          </div>
+          <div class="project-features">
+            <strong style="color: var(--text);">Fitur Utama:</strong>
+            <ul>
+              <li>Multi-halaman dengan routing Laravel</li>
+              <li>Admin panel untuk update konten</li>
+              <li>Gallery foto dengan lightbox</li>
+              <li>Contact form dengan email notification</li>
+              <li>Responsive design untuk semua device</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://bagsssv.github.io/company-profile/" target="_blank">Lihat Demo</a>
+            <a href="https://github.com/bagsssv/company-profile" target="_blank">Kode Sumber</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Layanan & Harga</h2>
+      <div class="info-grid">
+        <article class="card">
+          <h2>Landing Page</h2>
+          <p style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin: 1rem 0;">Rp 500rb - 1.5jt</p>
+          <p>Desain modern, responsif, loading cepat, SEO friendly, revisi 2x, garansi 7 hari.</p>
+        </article>
+        <article class="card">
+          <h2>Company Profile</h2>
+          <p style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin: 1rem 0;">Rp 1.5jt - 3jt</p>
+          <p>5-7 halaman, admin panel, contact form, gallery, responsive design, revisi 3x.</p>
+        </article>
+        <article class="card">
+          <h2>Web Application</h2>
+          <p style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin: 1rem 0;">Rp 2jt - 5jt</p>
+          <p>Custom features, database integration, user authentication, admin panel, training.</p>
+        </article>
       </div>
     </section>
 
@@ -307,22 +431,26 @@
       <div class="contact-list">
         <article class="card">
           <h2>Email</h2>
-          <p><a href="mailto:email@domain.com">pkkmbh1@gmail.com</a></p>
+          <p><a href="mailto:pkkmbh1@gmail.com">pkkmbh1@gmail.com</a></p>
         </article>
         <article class="card">
-          <h2>LinkedIn</h2>
-          <p><a href="#">linkedin.com/in/username</a></p>
+          <h2>WhatsApp</h2>
+          <p><a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
         </article>
         <article class="card">
           <h2>GitHub</h2>
-          <p><a href="https://github.com/bagsssv">https://github.com/bagsssv</a></p>
+          <p><a href="https://github.com/bagsssv" target="_blank">github.com/bagsssv</a></p>
+        </article>
+        <article class="card">
+          <h2>Fastwork</h2>
+          <p><a href="https://fastwork.id/user/bagsssv" target="_blank">fastwork.id/user/bagsssv</a></p>
         </article>
       </div>
     </section>
   </div>
 
   <footer class="footer">
-    <p>© 2026 Bagus. Dibuat dengan HTML dan CSS.</p>
+    <p>© 2026 M. Bagus Shokhibul Khikham. Dibuat dengan HTML dan CSS.</p>
   </footer>
 </body>
 </html>
